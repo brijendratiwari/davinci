@@ -1,0 +1,29 @@
+<ion-modal-view style="background-color: rgba(0, 0, 0, 0.0);">
+    <ion-content class="modal-order-desc" style="background-color: rgba(0, 0, 0, 0.7);">
+        <button ng-click="closePop()" style="top: 7px; right: 7px;" class="close icon ion-android-close"></button>
+        <div class="container">
+            <h3>{{ 'YOUR_ORDER'| translate }}</h3>
+            <div style="display: block; height: 95%; padding: 0 10px; position: relative" class="scroll-content ionic-scroll">
+                <div style="height: 98%; overflow-y: scroll;">
+                    <br/>
+                    <p style="font-size: 13px; font-family: Verdana; line-height: 16px;">{{ 'ORDER_DATE' | translate }}: {{modalorder.date_ordered}}<br/><br/>
+                        {{ 'ORDER_TYPE' | translate }}: {{modalorder.ordertype}}<br/>
+                        {{ 'ORDER_BEFORE_DISCOUNT' | translate }}: €{{orderDet.totalamount}}<br/>
+                        {{ 'ORDER_TOTAL' | translate }}: €{{orderDet.totaldue}}<br/>
+                        {{ 'DELIVERY_CHARGE' | translate }}: €{{orderDet.shipping}}<br/>
+                        {{ 'AMOUNT_PAID' | translate }}: € {{ orderDet.payment_amount }}<br/>
+                        {{ 'ORDER_NOTES' | translate }}: <br/><br/>
+                        {{ 'ORDER_ITEMS' | translate }}: 
+                    </p>
+                    <ion-list class="listing-items">
+                        <ion-item class="item-thumbnail-left" ng-repeat="menuit in list">
+                            <img src="http://davinci.engd.com/site/assets/images/uploads/{{menuit.image}}">
+                            <p style="max-height: 30px; white-space: normal; line-height: 13px;">{{menuit.display_name}}<small style="font-size: 0.8em; padding: 2px 5px;">({{menuit.cat_display_name}})</small></p>
+                            <p style="white-space:normal;">€{{menuit.price}}</p>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

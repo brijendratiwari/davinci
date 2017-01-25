@@ -1,0 +1,33 @@
+<ion-view style="background-color:#FF8E00;">
+    <ion-nav-bar class="bar-light centered-title">
+        <ion-nav-buttons side="left">
+            <a style="background-color: #fff; color: #000; margin: 0; font-size: 16px;" ng-click="backFromLogin()" class="button button-dark button-block"><i class="icon ion-ios-arrow-back myback"></i>{{ 'HOME' | translate }}</a>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <div style="width: 60px;"></div>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content title="Login" padding="true" class="has-header">
+        <div class="spacer" style="height: 40px;"></div>
+        <button ng-click="facebookLogin()" class="button facebook button-block">{{ 'FACEBOOK_LOGIN' | translate }}</button>
+        <form id="login-form" class="list">
+            <div class="spacer" style="height: 40px;"></div>
+            <div class="spacer" style="height: 20px;"></div>
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label">{{ 'EMAIL' | translate }}</span>
+                    <input type="email" name="username" ng-model="signin.username" placeholder="" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{ 'PASSWORD' | translate }}</span>
+                    <input type="password" name="password" ng-model="signin.password" placeholder="" ng-minlength="8" ng-required="true">
+                </label>
+            </ion-list>
+            <button ng-click="loginClick()" ng-disabled="login-form.$invalid" class="button button-dark button-block">{{ 'SIGNIN' | translate }}</button>
+            <div class="spacer" style="height: 40px;"></div>
+            <div class="spacer" style="height: 40px;"></div>
+            <button ng-click="signup()" class="button button-light button-block button-dark">{{ 'REGISTER' | translate }}</button>
+            <!--<a ui-sref="menu.signup" class="button button-light button-block button-dark">{{ 'INDEX_CREATE_USER_LINK' | translate }}</a>-->
+        </form>
+    </ion-content>
+</ion-view>

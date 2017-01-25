@@ -1,0 +1,15 @@
+<ion-modal-view style="background-color: rgba(0, 0, 0, 0.0);">
+    <ion-content class="modal-item-desc" style="background-color: rgba(0, 0, 0, 0.7);">
+        <button ng-click="closePop()" class="close icon ion-android-close"></button>
+        <div class="container">
+            <h3>{{selitem.display_name}}</h3>
+            <img style="margin: 10px auto; width: 95%; border: 1px solid #346785; display: block;"
+                src="http://davinci.engd.com/site/assets/images/uploads/{{selitem.image}}"/>
+            <ion-text>
+                {{ 'ITEM_COST' | translate }} : €{{selitem.price}}<br/>
+                {{selitem.display_description}}
+            </ion-text>
+            <button style="color: white;" class="button btn-green button-block" ng-click="addToCart(selitem.id)">{{ 'ADD_TO_CART' | translate }}<i class="icon ion-ios-cart" style="float: right; position: relative; right: 22px;"></i></button>
+        </div>
+    </ion-content>
+</ion-modal-view>

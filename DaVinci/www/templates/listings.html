@@ -1,0 +1,27 @@
+<ion-view id="page4" style="background-color:#FF8D00;">
+    <ion-content title="Soft Drinks" padding="true" class="has-header">
+        <status-bar></status-bar>
+        <div ng-repeat="dist in distmenu">
+            <div class="sub_cat_name" style="text-transform: uppercase;">{{ (dist.sub_cat_name) ? dist.sub_cat_name : dist.list[0].display_cat_name}}</div>
+            <ion-list class="listing-items">
+                <ion-item class="item-thumbnail-left" ng-repeat="menuit in dist.list">
+                    <img src="http://davinci.engd.com/site/assets/images/uploads/{{menuit.image}}">
+                    <div class="enc">
+                        <h2>{{menuit.display_name}}</h2>
+                        <h2>{{menuit.display_description}}</h2>
+                    <p style="white-space:normal;">€{{menuit.price}}</p>
+                    </div>
+                    <div class="buttons" ng-if="menuit.instock != '0'">
+                        <button ng-click="distMenuPop($event, menuit.id)"><i class="ion-information-circled"></i></button>
+                        <button class="add-cart" ng-click="addSingleCart($event, menuit.id)"><i class="ion-ios-cart"></i></button>
+                    </div>
+                    <div class="buttons" ng-if="menuit.instock == '0'">
+                        <p style="font-size: 10px; word-wrap: break-word; white-space: normal; text-align: center; font-weight: 900; margin-left: -30px;">{{ 'OUT_OF_STOCK' | translate }}</p>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+        <a ui-sref="menu.shoppingCart" class="button button-dark button-block">{{ 'CHECKOUT' | translate }}</a>
+    </ion-content>
+    <pop-option ng-hide="optionShow" ng-model="returnVal" ></pop-option>
+</ion-view>

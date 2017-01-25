@@ -1,0 +1,10 @@
+{
+  "name": "DaVinci",
+  "app_id": "8afa5b94",
+  "proxies": [
+    {
+      "path": "/apicall/",
+      "proxyUrl": "https://davinci.engd.com/"
+    }
+  ]
+}

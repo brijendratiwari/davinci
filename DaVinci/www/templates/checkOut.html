@@ -1,0 +1,82 @@
+<ion-view style="background-color:#FF8F00;">
+    <ion-content padding="true" class="has-header">
+        <div class="button-bar switchordertype" style="margin-bottom: 10px;">
+            <button class="button" ng-class="(showColl)?'bg-green':''" ng-click="showColl = true">Collection (€{{totalprice}})</button>
+            <button class="button" ng-class="(!showColl)?'bg-green':''" ng-click="showColl = false">FREE Delivery (€{{totalprice}})</button>
+        </div>
+        <div ng-hide="showColl">
+            <form name="delveryForm">
+                <ion-list>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'FIRST_NAME' | translate }}</span>
+                        <input type="text" name="first_name" ng-model="prof_del.first_name" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'LAST_NAME' | translate }}</span>
+                        <input type="text" name="last_name" ng-model="prof_del.last_name" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Address</span>
+                        <input type="text" name="address" ng-model="prof_del.address" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'STREET' | translate }}</span>
+                        <input type="text" name="street" ng-model="prof_del.street" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'TOWN' | translate }}</span>
+                        <input type="text" name="town" ng-model="prof_del.town" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'SELECT_COUNTRY' | translate }}</span>
+                        <input type="text" name="country" ng-model="prof_del.country" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'POSTCODE' | translate }}</span>
+                        <input type="text" name="postcode" ng-model="prof_del.postcode" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'INDEX_EMAIL_TH' | translate }}</span>
+                        <input type="email" name="email" ng-model="prof_del.email" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'CREATE_USER_VALIDATION_PHONE_LABEL' | translate }}</span>
+                        <input type="tel" name="phone" ng-model="prof_del.phone" placeholder="" ng-required="true">
+                    </label>
+                </ion-list>
+                <div class="spacer" style="width: 300px; height: 34px;"></div>
+                <ion-item>Total Due
+                    <span class="item-note">€{{totalprice}}</span>
+                </ion-item>
+                <button ng-disabled="delveryForm.$invalid" ng-click="delVBuy()" class="button button-dark  button-block">Pay Now</button>
+            </form>
+        </div>
+        <div ng-hide="!showColl">
+            <form name="collectionForm">
+                <ion-list>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'FIRST_NAME' | translate }}</span>
+                        <input type="text" name="first_name" ng-model="prof_collection.first_name" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'LAST_NAME' | translate }}</span>
+                        <input type="text" name="last_name" ng-model="prof_collection.last_name" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'INDEX_EMAIL_TH' | translate }}</span>
+                        <input type="email" name="email" ng-model="prof_collection.email" placeholder="" ng-required="true">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">{{ 'CREATE_USER_VALIDATION_PHONE_LABEL' | translate }}</span>
+                        <input type="tel" name="phone" ng-model="prof_collection.phone" placeholder="" ng-required="true">
+                    </label>
+                </ion-list>
+                <div class="spacer" style="width: 300px; height: 34px;"></div>
+                <ion-item>Total Due
+                    <span class="item-note">€{{totalprice}}</span>
+                </ion-item>
+                <button ng-disabled="collectionForm.$invalid" ng-click="collBuy()" class="button button-dark  button-block">Pay Now</button>
+        </div>
+
+    </ion-content>
+</ion-view>

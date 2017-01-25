@@ -1,0 +1,12 @@
+<ion-view>
+    <ion-content padding="true" class="has-header">
+        <img src="img/bg-home-img.png" style="width: 100%;"/>
+        <a ui-sref="menu.about" class="button button-energized  button-block">{{ 'ABOUT' | translate }}</a>
+        <a ui-sref="menu.orderOnline" class="button button-energized  button-block">{{ 'MENU_APP' | translate }}</a>
+        <!--<a ui-sref="menu.offers" class="button button-energized  button-block icon ion-cash">{{ 'OFFERS' | translate }}</a>-->
+        <a ui-sref="menu.pastorders" ng-hide="isLoggedIn()" class="button button-energized  button-block">{{ 'PAST_ORDERS' | translate }}</a>
+        <a ui-sref="menu.contact" class="button button-energized  button-block">{{ 'CONTACTUS' | translate }}</a>
+        <a ui-sref="menu.settings" ng-hide="isLoggedIn()" class="button button-energized  button-block">{{ 'SETTING' | translate }}</a>
+        <a ng-click="loggerClick()" class="button button-energized  button-block">{{isSignedIn}}</a>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,18 @@
+<div class="popmain">
+    <button class="close icon ion-android-close" ng-click="closePop()"></button>
+    <div class="popcontent">
+        <h4 style="text-align: center;">{{ 'AVAIL_OPTION' | translate }}</h4>
+        <div class="scroller">
+            <ion-list>
+                <ion-item ng-repeat="option in options.val">
+                    <h2>{{option.option_name}}<br/><small>{{ 'SEL_UPTO' | translate }} {{option.select_howmany}} {{ 'OPT_MESS' | translate }}</small></h2>
+                    <div ng-hide="showOptErr(option.id)" class="button button-block btn-red">{{ 'SELECT_ONE_OPT_MSG' | translate }}</div>
+                    <div class="listoptionval">
+                        <button class="button button-dark button-small" ng-class="ifselectedItem(option.id, selopt.id)" ng-click="selectItem(option.id, selopt.id)" ng-repeat="selopt in option.prodoptions">{{selopt.display_name}}{{(selopt.price != "0.00")?'&nbsp(€' + selopt.price + ')':''}}</button>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+        <button ng-click="saveSelections()" class="button button-block btn-green">{{ 'ADD_TO_CART' | translate }}</button>
+    </div>
+</div>

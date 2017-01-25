@@ -1,0 +1,17 @@
+<ion-view style="background-color:#FF6600;">
+    <ion-content title="Order online" padding="true" class="has-header">
+        <status-bar></status-bar>
+        <div id="orderOnline-button-bar1" class="button-bar"></div>
+        <ion-list id="orderOnline-list1">
+            <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="cat in category" ui-sref="menu.listing({catid: {{cat.id}}})">
+                <img src="http://davinci.engd.com/site/assets/images/uploads/{{cat.cat_image}}">
+                <div style="margin: 32px 0 auto; white-space: normal; word-break: break-all;">{{cat.display_cat_name}}
+                    <span>&nbsp;({{cat.item_count}})</span>
+                </div>
+                <p style="white-space:normal;">{{cat.display_cat_description}}</p>
+                <i class="icon ion-android-arrow-dropright"></i>
+            </ion-item>
+        </ion-list>
+        <a ui-sref="menu.shoppingCart" class="button button-dark button-block">{{ 'CHECKOUT' | translate }}</a>
+    </ion-content>
+</ion-view>

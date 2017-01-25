@@ -1,0 +1,35 @@
+<ion-view style="background-color:#FF6900;">
+    <ion-content title="Shopping Cart" padding="true" class="has-header">
+        <status-bar></status-bar>
+        <!--<div class="spacer" style="width: 300px; height: 22px;"></div>-->
+        <ion-list>
+            <ion-item ng-repeat="product in products" style="padding: 10px 5px;">
+                <img style="float: left; width: 25%; max-width: 100px;" src="http://davinci.engd.com/site/assets/images/uploads/{{product.image}}">
+                <div style="float: left; width: 55%; margin: 0 2.5%;"  style="min-height: 100px;"><!-- ng-click="editProd($event, product.product_id, product.quantity, product.cartid)" -->
+                    <p style="font-weight:700; height: auto; max-height: 40px; word-break: break-all; white-space: normal;">{{product.display_name}} <small style="font-size: 0.8em; padding: 2px 5px;">({{product.cat_display_name}})</small></p>
+                    <div style="float: left;">
+                        <ion-stepper ng-model="product"></ion-stepper><span style="font-size: 14px; margin-top: 14px; float: left;">x €{{product.price}}</span>
+                    </div>
+                </div>
+                <button style="right: 0; width: 13%; top: 0; position: absolute; background-color: rgba(0,0,0,0);" ng-click="deleteItem(product.product_id, product.quantity, product.cartid)" class="button icon ion-android-close"></button>
+                <div ng-hide="product.prodoptions == undefined" class="order-options">
+                    <span class="cart-options" ng-repeat="opt in product.prodoptions">{{opt.option_display_name}}{{(opt.option_price != "0.00")?'&nbsp(€' + opt.option_price + ')':''}}</span>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="spacer" style="width: 300px; height: 22px;"></div>
+        <ion-list>
+            <ion-item>{{ 'CART_SUBTOTAL' | translate }}
+                <span class="item-note">€{{subtotal}}</span>
+            </ion-item>
+            <ion-item>{{ 'TOTAL_QUAN' | translate }}
+                <span class="item-note">{{totalquantity}}</span>
+            </ion-item>
+            <ion-item>{{ 'TOTAL' | translate }}
+                <span class="item-note">€{{totalprice}}</span>
+            </ion-item>
+        </ion-list>
+        <button ng-click="checkOut()" ng-disabled="products == false" class="button button-dark button-block">{{ 'CHECK_OUT' | translate }}</button>
+        <!--<a ui-sref="menu.checkOut" class="button button-dark button-block">{{ 'CHECK_OUT' | translate }}</a>-->
+    </ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-view style="background-color:#FF8500;">
+    <ion-content title="Contact" padding="true" class="has-header">
+        <ui-gmap-google-map  center="map.center" zoom="map.zoom" style="height: 300px;">
+            <ui-gmap-marker ng-repeat="m in map.markerList" coords="m.coords" idkey="m.id"></ui-gmap-marker>
+        </ui-gmap-google-map>
+        
+        <h4 style="color:#000000;text-align:center;">Ώρες Λειτουργίας - όλες τις ώρες</h4>
+        <h1 style="color:#000000;text-align:center;">Da Vinci</h1>
+        
+        <div class="item item-body" ng-repeat="location in locList">
+            <h1 style="color:#000000;text-align:center;">{{location.site_name}}</h1>
+            <div style="margin-top:0px;color:#000000;text-align:center;">
+                <p>{{location.street}} {{location.postcode}}, {{location.town}} {{location.city}}, {{location.country}}</p>
+                <p>{{location.phone}}</p>
+            </div>
+            <div style="margin-top:0px;color:#000000;text-align:center;">
+                <p>Email: {{location.email}}</p>
+            </div>
+        </div>
+
+        <div class="item item-body">
+            <div class="hotelhours">
+                {{ 'HOURS' | translate }}
+                <p ng-repeat="hour in hours" style="text-transform: uppercase;"> {{hour.day}} - {{hour.opening.hours1}} {{hour.opening.hours2}}</p>
+                {{ 'DELIVERY_HOURS' | translate }}
+                <p ng-repeat="hour in hours" style="text-transform: uppercase;"> {{hour.day}} - {{hour.delivery.hours1}} {{hour.delivery.hours2}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

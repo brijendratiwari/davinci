@@ -1,0 +1,18 @@
+<ion-view style="background-color:#FF8D00;">
+    <ion-content padding="true" class="has-header">
+        <div class="usermessage" ng-show="showNoOrderMess">{{ 'ORDER_NOT_FOUND' | translate }}</div>
+        <ion-list class="listing-items">
+            <ion-item ng-repeat="order in orders">
+                <h2>{{ 'ORDER' | translate }} : {{order.id}}</h2>
+                <h4>{{ 'ORDER_DATE' | translate }} : {{order.date_ordered.split(' ')[0]}} </h4>
+                <p style="white-space:normal; font-size: 12px;">{{ 'AMOUNT_DUE' | translate }}: € {{order.amountdue}}</p>
+                <div class="right-button">
+                    <button class="button btn-orange button-small" ng-click="openOrder(order.id)">{{ 'VIEW' | translate }}</button>
+                    <button class="button btn-red button-small" ng-show="order.paid == 'no'" ng-click="payNow(order.id)">{{ 'PAYNOW' | translate }}</button>
+                    <button class="button btn-green button-small" ng-hide="order.paid == 'no'" ng-click="reOrder($event, order.id)">{{ 'REORDER' | translate }}</button>
+                </div>
+                <!--<i class="icon ion-android-arrow-dropright"></i>-->
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
